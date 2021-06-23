@@ -1,0 +1,79 @@
+extends ./main.layout.pug 
+
+block content 
+  .welcome-section 
+    section.hero 
+      .container.hero__container
+        header.header 
+          a.logo(href="#") BA 
+          nav.menu
+            ul.menu__list 
+              - var menuItems = ["Обо мне", "Навыки", "Работа", "Отзывы"];
+                each item in menuItems
+                  li.menu__item 
+                    a(href="#").menu__link #{item}
+          ul.socials 
+            - var socials = ["insta", "vk", "github", "envelope"];
+              each item in socials
+                li.socials__item 
+                  a(href="#").socials__link
+                    +icon(item, "socials__icon")
+          
+        .userinfo 
+          .userinfo__title Личный сайт #[br]веб разработчика
+          .userinfo__name Владлена Цензеря
+
+
+        .hero__bottom-buttons 
+          button.scroll-down-btn Скролл
+    section.about
+      .container.about__container 
+        .about__columns
+          .about__user 
+            .user 
+              .user__avatar 
+                .user__avatar-style 
+                  +image("content/user.jpg", 'user__avatar-pic')
+              .user__about
+                - 
+                  var userInfo = [
+                    ['Проживаю:', "Вроцлав"],
+                    ['Возраст:', "26 лет"],
+                    ['Родилась:', "8 июля 1994"],
+                  ];
+
+                table.user__data
+                  each item in userInfo
+                    tr.user__data-row
+                      td.user__table-title #{item[0]}
+                      td.user__table-content #{item[1]}
+          .about__content
+                .about__desc Привет, меня зовут
+                .about__title Владлена Цензеря
+                .about__text-info
+                  p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .about__ps
+                | Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+  .middle-section 
+    section.values 
+      .container 
+        .values__title
+         .values__title-text Чем я могу быть полезен вам
+          .values__content
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          .values__widget
+            - 
+              var skillsCategories = [
+                ["Frontend", ["HTML5", "CSS3", "Javascript", "Vue.js"]],
+                ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]]
+              ];
+            ul.skills
+              each category in skillsCategories
+                li.skills__item(v-for="category in categories")
+                  .skills-row
+                    .skills-row__title #{category[0]}
+                    ul.skills-row__list
+                      each skill in category[1]
+                        li.skills-row__item
+                          .skill #{skill}
+      
