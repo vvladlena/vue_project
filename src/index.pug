@@ -58,10 +58,10 @@ block content
     section.values 
       .container 
         .values__title
-         .values__title-text Чем я могу быть полезен вам
+          h3.values__title-text Чем я могу быть полезен вам
           .values__content
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-          .values__widget
+        .values__widget
             - 
               var skillsCategories = [
                 ["Frontend", ["HTML5", "CSS3", "Javascript", "Vue.js"]],
@@ -75,5 +75,39 @@ block content
                     ul.skills-row__list
                       each skill in category[1]
                         li.skills-row__item
-                          .skill #{skill}
+                          .skill
+                            svg(viewBox="0 0 100 100").skill__circle.skill__circle-shape
+                              circle(cx="50" cy="50" r="40").skill__circle--layer--under
+                              circle(cx="50" cy="50" r="40" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle--layer--above
+                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")  
+                                stop(offset="0%" stop-color="#243FE5")
+                                stop(offset="100%" stop-color="#0788F2")
+                            .skill__title #{skill}
+    section.works 
+      .container 
+        .section-title Мои работы
+          .works__content 
+            .works-preview 
+              .works-preview__pictures 
+                +image("content/slider1.png", "works-preview__img")
+                .works-preview__thumbs 
+                  ul.thumbs
+                    - for (var i = 4; i > 0; i--)
+                      li.thumbs__item 
+                        a(href="").thumbs__link
+                          +image(`content/slide${i}.png`, "thum")
+                .works-preview__btns 
+                  .square-btns 
+                    button(type="button").square-btns__item.square-btns__item--next
+                    button(type="button").square-btns__item.square-btns__item--prev         
+              .works-preview__info
+                - var tags =["HTML", "CSS", "JavaScript"];
+                ul.tags 
+                  each item in tags 
+                    li.tags__item
+                      .tag #{item}
+                .works-preview__title Сайт школы образования
+                .works-preview__desc
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                a(href="").iconed-link Посмотреть сайт
       
