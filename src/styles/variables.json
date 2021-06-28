@@ -1,7 +1,8 @@
 {
   "text-color": "#ffffff",
+  "text-color-opacity": "rgba(#ffffff, .5)",
   "text-color-dark": "#222427",
-  "links-color": "#4b6fd7",
+  "links-color": "#586ED3",
   "errors-color": "#cd1515",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",

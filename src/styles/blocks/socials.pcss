@@ -1,15 +1,24 @@
 .socials{
     display: flex;
+    opacity: .3;
 }
 .socials__icon{
     width: 25px;
     height: 25px;
     fill: $text-color; 
+    transform: translate(40%, 40%)
 }
 .socials__item{
     margin-right: 50px;
 
     &:last-child{
         margin-right: 0;
+    }
+
+    &-round{
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
     }
 }

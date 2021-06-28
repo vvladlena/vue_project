@@ -28,9 +28,11 @@ body {
 
 .container {
   margin: 0 auto;
-  /* max-width: 1480px;
-  width: 95%; */
-  width: 1080px;
+  max-width: 1480px;
+  width: 95%;
+  min-height: 100vh;
+  min-height: 650px;
+  padding: 160px 120px;
 
   @include phones {
     width: 85%;
@@ -74,7 +76,7 @@ p {
 
 button[type="button"] {
   cursor: pointer;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 a {
@@ -90,4 +92,9 @@ img {
 
 li{
   list-style-type: none;
+}
+
+.section-title{
+  font-weight: bold;
+  font-size: 36px;
 }

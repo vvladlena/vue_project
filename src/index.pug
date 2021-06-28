@@ -5,21 +5,20 @@ block content
     section.hero 
       .container.hero__container
         header.header 
-          a.logo(href="#") BA 
+          a.logo(href="#") BЦ 
           nav.menu
             ul.menu__list 
               - var menuItems = ["Обо мне", "Навыки", "Работа", "Отзывы"];
                 each item in menuItems
                   li.menu__item 
                     a(href="#").menu__link #{item}
-          ul.socials 
+          ul.socials
             - var socials = ["insta", "vk", "github", "envelope"];
               each item in socials
                 li.socials__item 
                   a(href="#").socials__link
                     +icon(item, "socials__icon")
-          
-        .userinfo 
+        .userinfo
           .userinfo__title Личный сайт #[br]веб разработчика
           .userinfo__name Владлена Цензеря
 
@@ -48,66 +47,120 @@ block content
                       td.user__table-title #{item[0]}
                       td.user__table-content #{item[1]}
           .about__content
-                .about__desc Привет, меня зовут
-                .about__title Владлена Цензеря
-                .about__text-info
-                  p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                .about__ps
-                | Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .about__desc Привет, меня зовут
+            .about__title Владлена Цензеря
+            .about__text-info
+              p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+            .about__ps
+              p Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
   .middle-section 
     section.values 
       .container 
-        .values__title
-          h3.values__title-text Чем я могу быть полезен вам
-          .values__content
-            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-        .values__widget
-            - 
-              var skillsCategories = [
-                ["Frontend", ["HTML5", "CSS3", "Javascript", "Vue.js"]],
-                ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]]
-              ];
-            ul.skills
-              each category in skillsCategories
-                li.skills__item(v-for="category in categories")
-                  .skills-row
-                    .skills-row__title #{category[0]}
-                    ul.skills-row__list
-                      each skill in category[1]
-                        li.skills-row__item
-                          .skill
-                            svg(viewBox="0 0 100 100").skill__circle.skill__circle-shape
-                              circle(cx="50" cy="50" r="40").skill__circle--layer--under
-                              circle(cx="50" cy="50" r="40" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle--layer--above
-                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")  
-                                stop(offset="0%" stop-color="#243FE5")
-                                stop(offset="100%" stop-color="#0788F2")
-                            .skill__title #{skill}
+        .values-section-content
+          .values__title
+            h3.values__title-text Чем я могу быть полезен вам
+            .values__content
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          .values__widget
+              - 
+                var skillsCategories = [
+                  ["Frontend", ["HTML5", "CSS3", "Javascript", "Vue.js"]],
+                  ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]]
+                ];
+              ul.skills
+                each category in skillsCategories
+                  li.skills__item(v-for="category in categories")
+                    .skills-row
+                      .skills-row__title #{category[0]}
+                      ul.skills-row__list
+                        each skill in category[1]
+                          li.skills-row__item
+                            .skill
+                              svg(viewBox="0 0 100 100").skill__circle.skill__circle-shape
+                                circle(cx="50" cy="50" r="40").skill__circle--layer--under
+                                circle(cx="50" cy="50" r="40" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle--layer--above
+                                linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")  
+                                  stop(offset="0%" stop-color="#243FE5")
+                                  stop(offset="100%" stop-color="#0788F2")
+                              .skill__title #{skill}
     section.works 
       .container 
-        .section-title Мои работы
-          .works__content 
-            .works-preview 
-              .works-preview__pictures 
-                +image("content/slider1.png", "works-preview__img")
-                .works-preview__thumbs 
-                  ul.thumbs
-                    - for (var i = 4; i > 0; i--)
-                      li.thumbs__item 
-                        a(href="").thumbs__link
-                          +image(`content/slide${i}.png`, "thum")
-                .works-preview__btns 
-                  .square-btns 
-                    button(type="button").square-btns__item.square-btns__item--next
-                    button(type="button").square-btns__item.square-btns__item--prev         
-              .works-preview__info
-                - var tags =["HTML", "CSS", "JavaScript"];
-                ul.tags 
-                  each item in tags 
-                    li.tags__item
-                      .tag #{item}
-                .works-preview__title Сайт школы образования
-                .works-preview__desc
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a(href="").iconed-link Посмотреть сайт
-      
+        h2.section-title.section-title__works Мои работы
+        .works__content 
+          .works-preview 
+            .works-preview__pictures(data-slide="2")
+              +image("content/slider1.png", "works-preview__img")
+              .works-preview__thumbs 
+                ul.thumbs
+                  - for (var i = 4; i > 0; i--)
+                    li.thumbs__item 
+                      a(href="").thumbs__link
+                        +image(`content/slide${i}.png`, "thum")
+              .works-preview__btns
+                .square-btns 
+                  button(type="button").square-btns__item.square-btns__item--next
+                  button(type="button").square-btns__item.square-btns__item--prev         
+            .works-preview__info
+              - var tags =["HTML", "CSS", "JavaScript"];
+              ul.tags 
+                each item in tags 
+                  li.tags__item
+                    .tag #{item}
+              .works-preview__title Сайт школы образования
+              .works-preview__desc
+                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+              a(href="").iconed-link Посмотреть сайт
+    section.reviews 
+      .container 
+        .slider 
+          .slider__header 
+            .section-title.slider__title Что обо мне говорят
+            .slider__buttons 
+              button(type="button").slider__btn.round-btn.round-btn--pointer--right
+              button(type="button").slider__btn.round-btn.round-btn--pointer--left
+          ul.slider__content 
+            - for (var i = 0; i < 2; i++)
+              li.slider__item
+                .quote 
+                  .quote__text(data-slide="“") 
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  .quote__user 
+                    .user-display 
+                      .user-display__avatar 
+                        .user-display__avatar-style 
+                          +image("content/dmitriy.png", "user-dispaly__pic")
+                      .user-display__data 
+                        .user-display__name Ковальчук Дмитрий
+                        .user-display__occ Основатель Loftschool
+  .bottom-section   
+    footer.footer
+      .container 
+        .footer__content
+          .footer__copyright
+            .footer__copyright-year &copy; 2020 
+            .footer__copyright-userinfo
+              .footer__copyright-name Владимир Астаханов
+              .footer__copyright-text Личный сайт веб - разработчика
+          .footer__data
+            nav.menu
+              ul.menu__list 
+                - var menuItems = ["Обо мне", "Навыки", "Работа", "Отзывы"];
+                  each item in menuItems
+                    li.menu__item 
+                      a(href="#").menu__link #{item}
+            .footer__data-content 
+              .footer__data-text
+                p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+            .footer__data-socials
+              ul.socials 
+                - var socials = ["insta", "vk", "github", "envelope"];
+                  each item in socials
+                    li.socials__item.socials__item-round 
+                      a(href="#").socials__link
+                        +icon(item, "socials__icon")
+          .footer__phrase
+            .footer__phrase-text 
+              p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            .footer__phrase-author 
+              p Martin Golding
+
