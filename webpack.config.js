@@ -10,7 +10,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = "vue_project/";
+  const publicPath = "../vue_project/";
   // const publicPath = "/";
 
   const pcss = {
